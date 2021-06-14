@@ -1,0 +1,59 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "yarn dev:as dev --host",
+    "dev:as": "cross-env NODE_ENV=development vite -c ./build/vite.config.ts --mode",
+    "build:test": "vue-tsc --noEmit && yarn build:as test",
+    "build:pre": "vue-tsc --noEmit && yarn build:as pre",
+    "build:pro": "vue-tsc --noEmit && yarn build:as pro",
+    "build:as": "cross-env NODE_ENV=production vite build -c ./build/vite.config.ts --mode",
+    "build:report": "vue-tsc --noEmit && cross-env REPORT=on yarn build:as pro",
+    "serve": "vite preview",
+    "lint": "eslint ./src  --ext .vue,.js,.ts",
+    "lint:fix": "yarn lint --fix"
+  },
+  "dependencies": {
+    "vue": "^3.0.5",
+    "vue-router": "^4.0.8"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@types/node": "^15.12.2",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.28.0",
+    "husky": "4.3.8",
+    "lint-staged": "^11.0.0",
+    "mario34-eslint-config-vue": "^0.1.3",
+    "postcss": "^8.3.2",
+    "postcss-pxtorem": "^6.0.0",
+    "rollup-plugin-visualizer": "^5.5.0",
+    "sass": "^1.34.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-scss": "^3.19.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vue-tsc": "^0.0.24"
+  }
+}
