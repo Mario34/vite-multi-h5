@@ -19,7 +19,7 @@ yarn dev
       main.ts
 ```
 
-项目访问地址与他们的目录结构保持一致，`project-a/index.html` => `host:prot/pages/project-a/index.html`，默认最大递归深度为5(⚠️ 超出深度的入口在build会被忽略，尽管开发环境仍然能够访问)
+项目访问地址与他们的目录结构保持一致，`project-a/index.html` => `host:port/pages/project-a/index.html`，默认最大递归深度为5(⚠️ 超出深度的入口在build会被忽略，尽管开发环境仍然能够访问)
 
 ---
 ## 以下是基础模版的开发指引
